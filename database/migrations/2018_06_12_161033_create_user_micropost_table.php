@@ -20,11 +20,7 @@ class CreateUserMicropostTable extends Migration
             $table->timestamps();
             
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('micropost_id')->references('id')->on('users')->onDelete('cascade');
-
-            // Do not allow duplication of combination of user_id and follow_id
-            $table->unique(['user_id', 'micropost_id']);
-        
+            $table->foreign('micropost_id')->references('id')->on('microposts')->onDelete('cascade');
         });
     }
 
