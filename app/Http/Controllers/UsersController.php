@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\User; // add
+use App\User; 
+use App\Micropost;// add
 
 class UsersController extends Controller
 {

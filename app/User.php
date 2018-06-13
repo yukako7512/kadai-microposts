@@ -93,7 +93,7 @@ public function is_following($userId) {
     {
         $follow_user_ids = $this->followings()-> pluck('users.id')->toArray();
         $follow_user_ids[] = $this->id;
-        return Micropost::whereIn('user_id', $follow_user_ids);
+        return Micropost::whereIn('user_id', $micropost_user_ids);
     }
     
     
@@ -106,7 +106,7 @@ public function is_following($userId) {
      
      public function favorites()
     {
-        return $this->belongsToMany(User::class, 'user_micropost', 'user_id', 'micropost_id')->withTimestamps();
+        return $this->belongsToMany(Micropost::class, 'user_micropost', 'user_id', 'micropost_id')->withTimestamps();
     }
     
     public function favorite($micropostId)
